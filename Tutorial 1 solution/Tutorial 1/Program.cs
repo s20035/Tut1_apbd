@@ -30,7 +30,7 @@ namespace Tutorial_1
             Console.WriteLine("Kiss My Ass World");
             var var1 = "Yo mama";
 
-            Console.WriteLine("Change");
+            Console.WriteLine("Change for dev");
         }
 
        
