@@ -14,19 +14,28 @@ namespace Tutorial_1
             //if (websiteURL == null) {
                var x = websiteURL ?? throw new ArgumentException("put some argument it is empty here");
             //}
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(x);
 
-            if (response.IsSuccessStatusCode) {
-                var htmlContent = await response.Content.ReadAsStringAsync();
+            try
+            {
+                var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(x);
 
-                var regex = new Regex("[a-z]+[a-z0-9]*@[a-z0-9]+\\.[a-z]+",RegexOptions.IgnoreCase);
+                if (response.IsSuccessStatusCode)
+                {
+                    var htmlContent = await response.Content.ReadAsStringAsync();
 
-                var emailAdresses = regex.Matches(htmlContent);
+                    var regex = new Regex("[a-z]+[a-z0-9]*@[a-z0-9]+\\.[a-z]+", RegexOptions.IgnoreCase);
 
-                foreach (var match in emailAdresses) {
-                    Console.WriteLine(match.ToString());
+                    var emailAdresses = regex.Matches(htmlContent);
+
+                    foreach (var match in emailAdresses)
+                    {
+                        Console.WriteLine(match.ToString());
+                    }
                 }
+            }
+            catch (Exception) {
+                Console.WriteLine("big error while fething data ");
             }
 
 
