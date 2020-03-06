@@ -9,9 +9,13 @@ namespace Tutorial_1
     {
         public static async Task Main(string[] args)
         {
-            var websiteURL = args[0];
+            // var websiteURL = args.Length > 0 ? args[0] : throw new ArgumentNullException();
+            string websiteURL = "https://www.theemailshop.co.uk/";
+            //if (websiteURL == null) {
+               var x = websiteURL ?? throw new ArgumentException("put some argument it is empty here");
+            //}
             var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(websiteURL);
+            var response = await httpClient.GetAsync(x);
 
             if (response.IsSuccessStatusCode) {
                 var htmlContent = await response.Content.ReadAsStringAsync();
