@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Tutorial 1": {
+      "commandName": "Project",
+      "commandLineArgs": "https://www.theemailshop.co.uk/",
+      "environmentVariables": {
+        "Key": "Value"
+      }
+    }
+  }
+}
